@@ -51,3 +51,20 @@ export const useDebounce = <T>(value: T, delay?: number) => {
   }, [value, delay]); //当传进来的参数发生改变时，会触发effect更新
   return debounceValue;
 };
+
+// useArray 定义hooks组件
+export const useArray = <T>(props: T[]) => {
+  //T是泛型，T[]代表着  是{name:string,age:12}[]这样的数组
+  const [value, setvalue] = useState(props);
+  return {
+    value,
+    setvalue,
+    add: (item: T) => setvalue([...value, item]), //item类型是传进来的泛型的格式，修改值最好是不改变原始值
+    removeIndex: (index: number) => {
+      const copyValue = [...value]; //先copy 然后操作copy
+      copyValue.splice(index, 1);
+      setvalue(copyValue);
+    },
+    remove: () => setvalue([]),
+  };
+};

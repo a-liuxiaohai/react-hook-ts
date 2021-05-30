@@ -3,10 +3,12 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./view/projectList";
 import reportWebVitals from "./reportWebVitals";
+import UseArray from "./view/use-Array";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
+    <UseArray></UseArray>
   </React.StrictMode>,
   document.getElementById("root")
 );
