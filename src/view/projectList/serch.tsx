@@ -1,6 +1,21 @@
 import React from "react";
 
-const SerchInput = ({ param, setparam, user }) => {
+export interface User {
+  //其他组件也用到了，可以用export导出，这样其他组件也可以使用
+  id: number;
+  name: string;
+}
+// 用接口定义数据类型
+interface SerchInputParams {
+  user: User[];
+  param: {
+    name: string;
+    personId: string;
+  };
+  setparam: (param: SerchInputParams["param"]) => void;
+}
+
+const SerchInput = ({ param, setparam, user }: SerchInputParams) => {
   return (
     <form>
       <input

@@ -1,7 +1,22 @@
 import React from "react";
 import "./table.css";
+import { User } from "./serch";
 
-const TableComponent = ({ tableList, user }) => {
+// 定义数据类型
+interface ItableList {
+  id: number;
+  name: string;
+  organization: string;
+  personId: number;
+}
+
+interface ListProps {
+  //结构的值的类型
+  tableList: ItableList[];
+  user: User[];
+}
+
+const TableComponent = ({ tableList, user }: ListProps) => {
   return (
     <table style={{ width: "220px" }}>
       <thead>
