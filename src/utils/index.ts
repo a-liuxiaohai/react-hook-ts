@@ -41,7 +41,8 @@ export const useMount = (callBack: () => void) => {
 // };
 
 // useDebounce(param,2000)
-export const useDebounce = (value: any, delay?: number) => {
+export const useDebounce = <T>(value: T, delay?: number) => {
+  //泛型
   const [debounceValue, setdebounceValue] = useState(value); //初始化debounce的值
 
   useEffect(() => {
